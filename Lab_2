@@ -1,0 +1,38 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <locale.h>
+#include <windows.h>
+#include <conio.h>
+
+int main(void)
+{
+	SetConsoleCP(1251);// установка кодовой страницы win-cp 1251 в поток ввода
+	SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
+	char symb, name[25], surname[25]; //Объявление переменных типа char
+	int a, b, len_s; // Объявление переменных типа int
+	float c, d; // Объявление переменных типа float
+	unsigned int e = 0; // Обявление беззнаковой переменной типа int
+
+	printf("Введите символ:");
+	scanf("%c", &symb);		//Считываем символ с клавиатуры и записываем его в переменную symb
+
+	printf("Введите своё имя и фамилию:");
+	scanf("%s %s", &name, &surname);	// Считываем слова с клавиатуры и записываем их в массивы name и surname через разделитель в виде любого пробольного символа
+	len_s = strlen(name) + strlen(surname) + 1; // Находим длину строки
+	
+
+	printf("Введите целое положительное и целое отрицательное:");
+	scanf("%d %d", &a, &b); // Вводим целые числа и записываем из в переменные a и b через разделитель в виде любого пробельного символа
+	printf("Введите вещественное положительное и вещественное отрицательное числа:");
+	scanf("%f %f",&c, &d);	// Вводим вещественные числа и записываем из в переменные с и d через разделитель в виде любого пробельного символа
+	printf("Введите число без знака:");
+	scanf("%u", &e);
+
+	printf("symb = %c code symb = %d\nМеня зовут %s %s len_string = %d\ndigit = [%-10d] digit_min = [%d] digit_left = [%10d]\n", symb, symb, name, surname, len_s, a, a, a); // Начинаем выводить переменные
+	printf("digit16 = [%-10x] digit16_min = [%x] digit16_left = [%-10x]\nndigit = [%-10d] ndigit_min = [%d] ndigit_left = [%10d]\n", a, a, a, b, b, b);
+	printf("ndigit16 = [%-10x] ndigit16_min = [%x] ndigit16_left = [%-10x]\nfloat = %.3f ex = %e\nnfloat = %.3f nex = %.3e\n", b, b, b, c, c, d, d);
+	printf("unsigned_digit = %u unsigned_digit_oct = %o unsigned_digit_hex = %x", e, e, e);
+	_getch();
+	return 0;
+}
+ 
